@@ -3,12 +3,50 @@
 <style>
 body{
     margin:0;
+    font-family: arial,sans-serif;
 }
+a{
+    text-decoration:none;
+}
+
+a:visited{
+    text-decoration:none;
+}
+a:hover{
+    text-decoration:underline;
+}
+
+button:hover{
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    background-image: -webkit-linear-gradient(top,#f8f9fa,#f8f9fa);
+    background-color: #f8f9fa;
+    border: 1px solid #dadce0;
+    color: #202124;
+}
+
 .logo{
     margin-left:auto;
     margin-right:auto;
     display:block;
     font-size:18px;
+    margin-top:60px;
+}
+.search-bar{
+    margin-left:auto;
+    margin-right:auto;
+    display:flex;
+    font-size:18px;
+    width: 380px;
+    border: 1px solid #dfe1e5;
+    border-radius: 24px;
+    height: 44px;
+}
+.search-bar:hover{
+    box-shadow: 0 1px 6px rgba(32,33,36,.28);
+    border-color: rgba(223,225,229,0);
+}
+input.search-bar{
+    padding: 0 50px 0 50px;
 }
 .buttons{
     display:flex;
@@ -16,33 +54,76 @@ body{
     align-content:center;
 }
 header{
-    font-size:18px;
-    height: 200px;
+    height: 1.5em;
     display: flex;
-    padding:10px 10px 10px 10px;
+    padding:17px 10px 10px 22px;
+    align-items:center;
 }
-.header-left{
-   
+
+.header-left-text{
+   color:rgba(0,0,0,0.87);
+   font-size:13px;
+   margin-right: 13px;
 }
+
 .header-right{
-    margin-left: auto;
+   margin-left: auto;
+   display: flex;
+   align-items:center;
 }
+
+.header-right-text{
+   color:rgba(0,0,0,0.87);
+   font-size:13px;
+   margin-right:12px;
+}
+
 footer{
-    font-size:18px;
+    font-size:14px;
     position: fixed;
     bottom:0px;
     padding:10px 10px 10px 10px;
     width:100%;
-    background: rgb(211, 208, 208);
+    height: 1.5em;
+    background:#f2f2f2;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    color: #70757a;
+}
+.footer-right{
+    display: flex;
+    justify-content:flex-end;
+    margin-right:45px;
+}
+.footer-left-text{
+    color: #70757a;
+    margin-left:30px;
+}
+.footer-right-text{
+    color: #70757a;
+    margin-left:30px;
+}
+.footer-center{
+    display: flex;
+    justify-content:center;
+}
+.search-container{
     display:flex;
-    justify-content: space-around;
-
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    margin: 32px 0 0 0;
 }
-.search{
-    margin: 10px 15px 10px 15px;
-}
-.lucky{
-    margin: 10px 15px 10px 15px;
+.search-lucky{
+    border: 1px solid #f8f9fa;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    font-size: 14px;
+    margin: 25px 8px;
+    padding: 10px 16px;
+    height: 36px;
+    min-width: 54px;
+    text-align: center;
 }
 
 .About{
@@ -51,6 +132,25 @@ footer{
 
 .gmail{
    padding:15px; 
+}
+#mag{
+    margin: 7px -22px 0px 0px;
+    z-index: 1;
+}
+#mag svg {
+  height: 20px;
+  width: 20px;
+  color:gray;
+}
+
+.mic{
+    margin: 10px 0px 0px -45px;
+    z-index: 1;
+}
+.mic svg {
+  height: 25x;
+  width: 25px;
+  color:gray;
 }
 
 </style>
@@ -62,41 +162,70 @@ footer{
 
 <div class="header-left">
     
-    <a class="About" href="#">About</a>
-    <a clase="Store" href="#">Store</a>
+    <a class="header-left-text" href="#">About</a>
+    <a class="header-left-text" href="#">Store</a>
 
     
 </div>
 
 <div class="header-right">
     
-    <a class="gmail" href="#">Gmail</a>
-    <a class="images" href="#">Images</a>
+    <a class="header-right-text" href="#">Gmail</a>
+    <a class="header-right-text" href="#">Images</a>
+    <a class="options-grid" href="#"><img src="options-grid.png"></a>
+    <a class="profile-pic" href="#"><img src="profile.png"></a>
     
 </div>
 
 </header>
 
-<img class="logo" src="google.png">
-<input class ="logo" type="text" >
+<img class="logo" src="https://www.google.com/logos/doodles/2020/december-holidays-days-2-30-6753651837108830.3-law.gif">
 
-<div class="buttons">
-    <button class="search" type="button">Search</button>
-    <button  class="lucky" type="button">I'm Feeling Lucky</button>
+<div class="search-container">
+    <div id="mag">
+        <svg focusable="false" id="mag" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+            </path>
+        </svg>
+    </div>
+
+    <form>
+        <input class ="search-bar" type="text" >
+    </form>
+    <div class="mic">
+         <svg focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="m12 15c1.66 0 3-1.31 3-2.97v-7.02c0-1.66-1.34-3.01-3-3.01s-3 1.34-3 3.01v7.02c0 1.66 1.34 2.97 3 2.97z" fill="#4285f4"></path>
+            <path d="m11 18.08h2v3.92h-2z" fill="#34a853"></path>
+            <path d="m7.05 16.87c-1.27-1.33-2.05-2.83-2.05-4.87h2c0 1.45 0.56 2.42 1.47 3.38v0.32l-1.15 1.18z" fill="#f4b400"></path>
+            <path d="m12 16.93a4.97 5.25 0 0 1 -3.54 -1.55l-1.41 1.49c1.26 1.34 3.02 2.13 4.95 2.13 3.87 0 6.99-2.92 6.99-7h-1.99c0 2.92-2.24 4.93-5 4.93z" fill="#ea4335"></path>
+         </svg>
+    </div>    
 </div>
 
-
+<div class="buttons">
+    <button class="search-lucky" type="button">Google Search</button>
+    <button  class="search-lucky" type="button">I'm Feeling Lucky</button>
+</div>
 
 <footer>
 
-    <a href="#">Advertising</a>
-    <a href="#">Business</a>
-    <a href="#">How Search works</a>
-    <a href="#">Carbon neutral since 2007</a>
-    <a href="#">Privacy</a>
-    <a href="#">Terms</a>
-    <a href="#">Settings</a>
+    <div class = "footer-left">
+    <a class="footer-left-text" href="#">Advertising</a>
+    <a class="footer-left-text" href="#">Business</a>
+    <a class="footer-left-text" href="#">How Search works</a>
+</div>
+
+<div class = "footer-center">Carbon neutral since 2007
+</div >
+
+<div class="footer-right">
+    <a class="footer-right-text" href="#">Privacy </a>
+    <a class="footer-right-text" href="#">Terms </a>
+    <a class="footer-right-text" href="#">Settings </a>
+</div>
 
 </footer>
+
 </body>
+
 </html>
