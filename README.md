@@ -1,6 +1,6 @@
 Recreation of Google homepage using CSS and HTML as part of the Project Odin project portfolio. 
 
-This was my first project in done using CSS/HTML.
+This was my first project done using CSS/HTML.
 
 Demonstrated Skills:
 
